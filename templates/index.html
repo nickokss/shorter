@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Shorter</title>
+    <link rel="stylesheet" href="./static/css/styles.css">
+</head>
+<body>
+    <div class="content">
+        <h1>Shorter</h1>
+        <form name="urlForm" onsubmit="return validateForm()" method="post">
+            <input type="text" name="url" placeholder="Introduce tu URL aquí">
+            <input type="submit" value="Acortar URL">
+        </form>
+        <p class="message" id="mensaje">{% if mensaje %}{{ mensaje }}{% endif %}</p>
+    </div>
+    <script src="./static/js/script.js"></script>
+</body>
+</html>
