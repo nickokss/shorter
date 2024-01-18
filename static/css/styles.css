@@ -8,7 +8,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
 }
 
 .content {
@@ -17,12 +17,20 @@ body {
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
     width: 100%;
-    max-width: 400px; /* Ajusta esto según la anchura deseada */
+    max-width: 600px; /* Ajusta esto según la anchura deseada */
+    margin: 0 auto; /* Centra el contenido horizontalmente */
+    margin-top: -150px; 
 }
 
 h1 {
-    font-size: 2.5em; /* Ajusta el tamaño del título */
-    margin-bottom: 20px;
+    font-size: 3em; /* Ajusta el tamaño del título */
+    margin-bottom: 40px;
+}
+
+h2 {
+    color: #fff; /* Cambia el color del texto */
+    margin-bottom: 20px; /* Espacio debajo del encabezado */
+    /* Otros estilos que quieras aplicar */
 }
 
 input[type="text"], input[type="submit"] {
@@ -31,6 +39,7 @@ input[type="text"], input[type="submit"] {
     margin-bottom: 15px;
     border: none;
     border-radius: 4px;
+    box-sizing: border-box; /* Incluye el padding en el ancho total */
 }
 
 input[type="text"] {
@@ -52,5 +61,83 @@ input[type="submit"]:hover {
 p.message {
     color: #fff;
     padding: 10px;
-    margin-top: 20px;
+    font-size: 20px;
+}
+
+/* Media Query para Responsividad en Pantallas Pequeñas (menos de 600px) */
+@media (max-width: 600px) {
+    .content {
+        max-width: 90%; /* Ancho del 90% de la pantalla */
+    }
+    
+    h1 {
+        font-size: 4.5em; /* Tamaño de fuente más grande */
+    }
+}
+
+.spinner-container {
+    /* Estilos para el contenedor de rueda giratoria */
+    position: absolute;
+    margin-top: 370px;
+    overflow: hidden;
+}
+
+.spinner {
+    /* Estilos para la rueda giratoria */
+    width: 30px;
+    height: 30px;
+    border: 5px solid rgba(255, 255, 255, 0.3);
+    border-top: 5px solid #eae133;
+    border-radius: 50%;
+    animation: spin 2s linear infinite;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@keyframes spin {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Estilo para los elementos <li> dentro de <ul> */
+ul > li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+/* Estilo para los contenedores de enlaces, que incluyen tanto la imagen como el enlace */
+ul > li > .link-container {
+    display: flex;
+    align-items: center;
+}
+
+/* Estilo para las imágenes (favicons) dentro del contenedor de enlaces */
+ul > li > .link-container > img {
+    width: 16px;
+    height: 16px;
+    margin-right: 10px;
+}
+
+/* Estilo para los enlaces dentro del contenedor de enlaces */
+ul > li > .link-container > a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #fff; /* Ajusta este color según tu preferencia */
+}
+
+ul > li > .link-container > a:visited {
+    color: #eae133; /* Cambia a color amarillo después de ser visitado */
+}
+
+ul{
+    padding-inline-start: 0;
+}
+
+.ultimas{
+    position:absolute;
+    margin-top: 180px;
 }

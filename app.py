@@ -1,5 +1,5 @@
 # app.py
-from flask import Flask, request, redirect, render_template
+from flask import Flask, request, redirect, render_template, jsonify
 from models import db, URL
 import hashlib
 
@@ -42,6 +42,19 @@ def index():
 def redirect_to_long_url(short_url):
     link = URL.query.filter_by(short_url=short_url).first_or_404()
     return redirect(link.long_url)
+
+@app.route('/latest_urls')
+def latest_urls():
+    # Obtén las últimas 5 URLs acortadas de la base de datos
+    latest_urls = URL.query.order_by(URL.id.desc()).limit(5).all()
+    urls = [url.short_url for url in latest_urls]
+    full_urls = [url.long_url for url in latest_urls]
+
+    # Combina las URLs acortadas y completas en un diccionario
+    url_data = [{'short_url': short_url, 'full_url': full_url} for short_url, full_url in zip(urls, full_urls)]
+
+    # Retorna la respuesta JSON con ambas URLs
+    return jsonify({'urls': url_data})
 
 if __name__ == '__main__':
     app.run(debug=True)

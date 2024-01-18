@@ -14,6 +14,12 @@
         </form>
         <p class="message" id="mensaje">{% if mensaje %}{{ mensaje }}{% endif %}</p>
     </div>
+    <div class="ultimas"><h2>Últimas URLs acortadas</h2></div>
+    <div id="latest-urls" class="spinner-container">
+        <ul class="latest-urls" id="latest-urls-list">
+            <!-- Los elementos <li> se agregarán dinámicamente con JavaScript -->
+        </ul>
+    </div>
     <script src="./static/js/script.js"></script>
 </body>
 </html>
